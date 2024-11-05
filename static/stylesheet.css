@@ -32,12 +32,3 @@ h1, h2, h3, h4, h5, h6, p, a, span, div, input, button, label {
     background-color: #004494;
     transform: scale(1);
 }
-
-/* Form container styles */
-.form-container {
-  width: 50%;
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  display: block;
-}
