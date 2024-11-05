@@ -52,8 +52,8 @@ def register_routes(app):
         user = User.query.get_or_404(user_id)
         return render_template('thanks.html', user=user)
 
-    @app.route('/user/<int:user_id>/answers')
-    def view_answers(user_id):
+    @app.route('/responses/<int:user_id>')
+    def responses(user_id):
         user = User.query.get_or_404(user_id)
         answers = Answer.query.filter_by(user_id=user.id).all()
-        return render_template('view_answers.html', user=user, answers=answers)
+        return render_template('responses.html', user=user, answers=answers)

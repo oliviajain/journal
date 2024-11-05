@@ -36,4 +36,6 @@ h1, h2, h3, h4, h5, h6, p, a, span, div, input, button, label {
 .w3-table td {
   word-wrap: break-word;
   white-space: pre-wrap; /* Preserve whitespace and wrap text */
+  overflow-wrap: break-word; /* Handle long words */
+  word-break: break-word; /* Ensure words break correctly */
 }
