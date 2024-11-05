@@ -15,7 +15,7 @@
 <div class="w3-top">
     <div class="w3-bar w3-black w3-card">
         <a class="w3-bar-item w3-button w3-padding-large" href="{{ url_for('view_answers', user_id=user.id) }}">RESPONSES</a>
-        <a class="w3-bar-item w3-button w3-padding-large w3-right" href="/">LOGOUT</a>
+        <a class="w3-bar-item w3-button w3-padding-large w3-right" href="/home">LOGOUT</a>
     </div>
 </div>
 
@@ -31,15 +31,28 @@
     <div class="w3-card-4 w3-margin w3-white">
         <div class="w3-container form-container">
             <p>{{ question }}</p>
-            <form action="" method="post">
+            <form action="" method="post" id="answerForm">
                 <label for="answer">Your answer:</label>
-                <input type="text" id="answer" name="answer" required class="w3-input w3-border">
+                <textarea id="answer" name="answer" required class="w3-input w3-border" rows="4" style="resize: none;"></textarea>
                 <button type="submit" class="w3-button w3-black w3-margin-top">Next</button>
             </form>
         </div>
     </div>
 
 </div>
+
+<script>
+    document.getElementById('answer').addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.key === 'Enter') {
+            event.preventDefault();
+            const textarea = event.target;
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            textarea.value = textarea.value.substring(0, start) + '\n' + textarea.value.substring(end);
+            textarea.selectionStart = textarea.selectionEnd = start + 1;
+        }
+    });
+</script>
 
 </body>
 </html>

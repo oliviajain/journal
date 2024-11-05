@@ -32,3 +32,8 @@ h1, h2, h3, h4, h5, h6, p, a, span, div, input, button, label {
     background-color: #004494;
     transform: scale(1);
 }
+
+.w3-table td {
+  word-wrap: break-word;
+  white-space: pre-wrap; /* Preserve whitespace and wrap text */
+}
