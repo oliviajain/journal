@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Answers</title>
+</head>
+<body>
+    <h1>Answers for {{ user.name }}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Your Answer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for answer in answers %}
+            <tr>
+                <td>{{ answer.question }}</td>
+                <td>{{ answer.answer }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('questions', user_id=user.id) }}">Back to Questions</a><br>
+
+    <a href="/">Logout</a>
+</body>
+</html>
