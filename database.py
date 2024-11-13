@@ -1,5 +1,7 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from datetime import date
 
 db = SQLAlchemy()
 
@@ -12,6 +14,7 @@ def init_db(app):
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///local.db'
 
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    Migrate(app, db)
     db.init_app(app)
 
 # Define the User and Answer models
@@ -29,4 +32,5 @@ class Answer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.Text, nullable=False)
     answer = db.Column(db.Text, nullable=False)
+    answer_date = db.Column(db.Date, default=date.today())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)

@@ -39,3 +39,7 @@ h1, h2, h3, h4, h5, h6, p, a, span, div, input, button, label {
   overflow-wrap: break-word; /* Handle long words */
   word-break: break-word; /* Ensure words break correctly */
 }
+
+.date-column {
+  width: 140px; /* Adjust the width as needed */
+}

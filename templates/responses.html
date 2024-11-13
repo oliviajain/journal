@@ -33,6 +33,7 @@
             <table class="w3-table w3-bordered">
                 <thead>
                     <tr>
+                        <th>Date</th>
                         <th>Question</th>
                         <th>Your Response</th>
                     </tr>
@@ -40,6 +41,7 @@
                 <tbody>
                     {% for answer in answers %}
                     <tr>
+                        <td class="date-column">{{ answer.answer_date }}</td>
                         <td>{{ answer.question }}</td>
                         <td>{{ answer.answer }}</td>
                     </tr>
